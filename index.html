@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetic — Structured Training. Real Coaching.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#F4F1F8;--bg-card:#FFF;--coral:#E85D4A;--coral-hover:#D14E3C;--navy:#1B2B5A;--navy-light:#2A3D6E;--text:#1A1A2E;--text-light:#6B6B80;--text-lighter:#9494A8;--teal:#2AA6A6;--green:#4CAF50;--purple:#7B6B8A;--warm-grey:#A89B8C;--border:#E8E4F0;--shadow:0 2px 20px rgba(27,43,90,0.08);--shadow-lg:0 8px 40px rgba(27,43,90,0.12)}
+  body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;background:rgba(244,241,248,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,228,240,0.6)}
+  .logo{font-family:'DM Sans',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.5px;color:var(--navy)}.logo span{color:var(--coral)}
+  .nav-btn{background:var(--navy);color:#fff;border:none;padding:10px 24px;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s ease}.nav-btn:hover{background:var(--navy-light);transform:translateY(-1px)}
+  .hero{padding:100px 0 0;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+  .hero-content{text-align:center;padding:0 24px;max-width:680px;margin:0 auto;position:relative;z-index:2}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg-card);border:1px solid var(--border);padding:8px 18px;border-radius:50px;font-size:13px;font-weight:500;color:var(--text-light);margin-bottom:28px;box-shadow:var(--shadow)}
+  .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+  .hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(38px,8vw,60px);line-height:1.05;color:var(--navy);margin-bottom:20px;letter-spacing:-1px}
+  .hero h1 em{font-style:italic;color:var(--coral)}
+  .hero-content>p{font-size:17px;color:var(--text-light);max-width:480px;margin:0 auto 32px;line-height:1.7}
+  .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:#fff;border:none;padding:16px 36px;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 20px rgba(232,93,74,0.35);text-decoration:none}.hero-cta:hover{background:var(--coral-hover);transform:translateY(-2px);box-shadow:0 6px 30px rgba(232,93,74,0.45)}
+  .hero-cta svg{transition:transform .3s ease}.hero-cta:hover svg{transform:translateX(3px)}
+  .hero-image{width:100%;max-width:500px;margin:40px auto 0;border-radius:24px 24px 0 0;overflow:hidden;box-shadow:0 -10px 60px rgba(27,43,90,0.15)}
+  .hero-image img{width:100%;height:420px;object-fit:cover;object-position:center top;display:block}
+  .types-strip{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:48px 24px;max-width:600px;margin:0 auto}
+  .type-pill{display:flex;align-items:center;gap:8px;background:var(--bg-card);border:1px solid var(--border);padding:10px 16px;border-radius:50px;font-size:13px;font-weight:500;color:var(--text);box-shadow:var(--shadow)}
+  .type-dot{width:10px;height:10px;border-radius:50%}
+  .tagline-section{background:var(--navy);padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+  .tagline-section::before{content:'"';position:absolute;top:10px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-size:200px;color:rgba(255,255,255,0.03);pointer-events:none}
+  .tagline-section h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(30px,6vw,48px);color:#fff;margin-bottom:16px;font-style:italic}
+  .tagline-section p{font-size:16px;color:rgba(255,255,255,0.6);max-width:440px;margin:0 auto;line-height:1.7}
+  .tagline-section .attribution{margin-top:20px;font-size:14px;font-weight:600;color:var(--coral);letter-spacing:1px;text-transform:uppercase}
+  .coach-section{padding:80px 24px;max-width:680px;margin:0 auto}
+  .section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--coral);margin-bottom:16px}
+  .coach-section h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(28px,5vw,40px);color:var(--navy);margin-bottom:24px;line-height:1.15}
+  .coach-portrait{width:100%;border-radius:20px;overflow:hidden;margin-bottom:32px;box-shadow:var(--shadow-lg)}
+  .coach-portrait img{width:100%;height:400px;object-fit:cover;object-position:center top;display:block}
+  .coach-bio{font-size:16px;color:var(--text-light);line-height:1.8;margin-bottom:20px}
+  .coach-philosophy{background:var(--bg-card);border-left:4px solid var(--coral);padding:24px;border-radius:0 12px 12px 0;margin:32px 0;box-shadow:var(--shadow)}
+  .coach-philosophy p{font-size:15px;color:var(--text);line-height:1.7;font-style:italic}
+  .gallery{padding:0 24px 80px;max-width:680px;margin:0 auto}
+  .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .gallery-grid .wide{grid-column:1/-1}
+  .gallery-item{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+  .gallery-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .4s ease}
+  .gallery-item.wide img{height:240px}
+  .gallery-item:hover img{transform:scale(1.03)}
+  .gallery-item .caption{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,0.7));color:#fff;font-size:12px;font-weight:600;letter-spacing:.5px}
+  .credentials{padding:0 24px 80px;max-width:680px;margin:0 auto}
+  .credentials h3{font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:var(--navy);margin-bottom:24px}
+  .race-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+  .race-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;box-shadow:var(--shadow);transition:transform .2s ease}.race-card:hover{transform:translateY(-2px)}
+  .race-card .race-icon{font-size:24px;margin-bottom:8px}.race-card .race-name{font-weight:600;font-size:14px;color:var(--text);margin-bottom:4px}.race-card .race-detail{font-size:12px;color:var(--text-lighter)}
+  .ironman-story{border-radius:20px;overflow:hidden;margin-top:24px;position:relative}
+  .ironman-story-image{width:100%;height:320px;object-fit:cover;display:block}
+  .ironman-story-overlay{position:absolute;bottom:0;left:0;right:0;padding:32px 24px;background:linear-gradient(transparent,rgba(27,43,90,0.95) 40%)}
+  .ironman-story-overlay h4{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:10px}
+  .ironman-story-overlay p{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.7}
+  .ironman-story-overlay .badge{display:inline-block;background:var(--coral);color:#fff;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;margin-top:14px;letter-spacing:.5px}
+  .features-section{padding:80px 24px;background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .features-inner{max-width:680px;margin:0 auto}
+  .features-section h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(28px,5vw,40px);color:var(--navy);margin-bottom:12px;text-align:center}
+  .features-subtitle{text-align:center;color:var(--text-light);margin-bottom:48px;font-size:16px}
+  .feature-list{display:flex;flex-direction:column;gap:14px}
+  .feature-item{display:flex;gap:20px;padding:24px;background:var(--bg);border-radius:16px;transition:transform .2s ease}.feature-item:hover{transform:translateX(4px)}
+  .feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .feature-text h4{font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px}.feature-text p{font-size:14px;color:var(--text-light);line-height:1.6}
+  .week-preview{padding:80px 24px;max-width:480px;margin:0 auto}
+  .week-preview h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(28px,5vw,36px);color:var(--navy);margin-bottom:8px;text-align:center}
+  .week-subtitle{text-align:center;color:var(--text-light);margin-bottom:32px;font-size:15px}
+  .week-day{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--border)}.week-day:last-child{border-bottom:none}
+  .day-label{width:36px;font-size:12px;font-weight:700;color:var(--text-lighter);text-transform:uppercase;letter-spacing:.5px;flex-shrink:0}
+  .day-card{flex:1;background:var(--bg-card);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow);border-left:4px solid transparent}
+  .day-card.rest{background:rgba(232,228,224,0.3);border-left-color:#E8E4E0;box-shadow:none}
+  .day-card .title{font-weight:600;font-size:14px;color:var(--text)}.day-card .meta{font-size:12px;color:var(--text-lighter);margin-top:2px}
+  .cta-section{padding:80px 24px;text-align:center;background:linear-gradient(180deg,var(--bg) 0%,#EBE7F2 100%)}
+  .cta-section h2{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(28px,5vw,40px);color:var(--navy);margin-bottom:16px}
+  .cta-section>p{font-size:16px;color:var(--text-light);margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto}
+  .cta-note{font-size:13px;color:var(--text-lighter);margin-top:20px}
+  footer{padding:40px 24px;text-align:center;border-top:1px solid var(--border)}
+  footer .logo{margin-bottom:12px}footer p{font-size:13px;color:var(--text-lighter)}
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .hero-content>*{animation:fadeInUp .8s ease forwards;opacity:0}
+  .hero-badge{animation-delay:.1s}.hero h1{animation-delay:.2s}.hero-content>p{animation-delay:.4s}.hero-content>.hero-cta{animation-delay:.6s}
+  @media(max-width:480px){.race-grid{grid-template-columns:1fr 1fr}.hero{padding-top:90px}.hero-image img{height:320px}.coach-portrait img{height:300px}.gallery-item img{height:160px}.gallery-item.wide img{height:200px}.ironman-story-image{height:250px}nav{padding:14px 20px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">K<span>.</span> Kinetic</div>
+  <button class="nav-btn" onclick="window.location.href='https://kinetic-app-lac.vercel.app'">Join Now</button>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span>Now accepting athletes</div>
+    <h1>Structured Training.<br><em>Real Coaching.</em></h1>
+    <p>Multi-sport training plans for runners and triathletes — designed by a real coach, delivered to your phone, with purpose behind every session.</p>
+    <a href="#cta" class="hero-cta">Start Training <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="hero-image">
+    <img src="hero-silas.jpeg" alt="Coach Silas running during a triathlon">
+  </div>
+</section>
+<div class="types-strip">
+  <div class="type-pill"><span class="type-dot" style="background:#1B2B5A"></span> Running</div>
+  <div class="type-pill"><span class="type-dot" style="background:#2AA6A6"></span> Swimming</div>
+  <div class="type-pill"><span class="type-dot" style="background:#4CAF50"></span> Cycling</div>
+  <div class="type-pill"><span class="type-dot" style="background:#E85D4A"></span> Strength</div>
+  <div class="type-pill"><span class="type-dot" style="background:#A89B8C"></span> Mobility</div>
+</div>
+<section class="tagline-section">
+  <h2>"Limits are invitations."</h2>
+  <p>Every barrier is a door. Every challenge is a chance to grow. Train with a coach who lives it.</p>
+  <div class="attribution">— Coach Silas</div>
+</section>
+<section class="coach-section">
+  <div class="section-label">Meet Your Coach</div>
+  <h2>Coach Silas</h2>
+  <div class="coach-portrait">
+    <img src="coach-portrait.jpeg" alt="Coach Silas with Ironman 70.3 medal">
+  </div>
+  <p class="coach-bio">Silas is a Tinman triathlete, endurance coach, and the founder of Kinetic. Based in Nairobi, he has spent years training runners and triathletes — from first-time 5K runners to marathon veterans and Ironman competitors.</p>
+  <p class="coach-bio">He doesn't just hand you a plan and disappear. He structures every session with intent — every tempo run, every interval, every strength circuit has a purpose. He tells you <em>what</em> to do, <em>how</em> to do it, and <em>why</em> it matters.</p>
+  <div class="coach-philosophy">
+    <p>"I don't want athletes who just run. I want athletes who understand their training. When you know why Tuesday is tempo and Sunday is long and easy — that's when you stop being a jogger and start being a runner."</p>
+  </div>
+</section>
+<section class="gallery">
+  <div class="gallery-grid">
+    <div class="gallery-item wide"><img src="team-training.jpeg" alt="Training group on Nairobi road"><div class="caption">Sunday long run crew — Nairobi</div></div>
+    <div class="gallery-item"><img src="cycling-action.jpeg" alt="Coach Silas cycling"><div class="caption">Bike leg — Ironman 70.3</div></div>
+    <div class="gallery-item"><img src="muthaiga-group.jpeg" alt="Training group at Muthaiga"><div class="caption">Muthaiga training session</div></div>
+    <div class="gallery-item wide"><img src="race-day-group.jpeg" alt="Race day team"><div class="caption">Race day — Stanchart Nairobi Marathon</div></div>
+    <div class="gallery-item"><img src="tri-team-beach.jpeg" alt="Triathlon team on beach"><div class="caption">Triathlon squad — race morning</div></div>
+    <div class="gallery-item"><img src="silas-wetsuit.jpeg" alt="Silas pre-swim"><div class="caption">Pre-swim — Ironman Rwanda</div></div>
+  </div>
+</section>
+<section class="credentials">
+  <h3>Races & Cohorts Coached</h3>
+  <div class="race-grid">
+    <div class="race-card"><div class="race-icon">🏔️</div><div class="race-name">Kilimanjaro</div><div class="race-detail">Multiple cohorts summited</div></div>
+    <div class="race-card"><div class="race-icon">🇰🇪</div><div class="race-name">Stanchart Nairobi</div><div class="race-detail">Marathon & Half Marathon</div></div>
+    <div class="race-card"><div class="race-icon">🏙️</div><div class="race-name">Nairobi City Marathon</div><div class="race-detail">Group training programmes</div></div>
+    <div class="race-card"><div class="race-icon">🇿🇦</div><div class="race-name">Sanlam Marathon</div><div class="race-detail">South Africa</div></div>
+    <div class="race-card"><div class="race-icon">🇺🇸</div><div class="race-name">Chicago Marathon</div><div class="race-detail">World Major</div></div>
+    <div class="race-card"><div class="race-icon">🏆</div><div class="race-name">Boston Marathon</div><div class="race-detail">World Major</div></div>
+  </div>
+  <div class="ironman-story">
+    <img class="ironman-story-image" src="ironman-finish.jpeg" alt="Coach Silas at Ironman 70.3 Rubavu finish line">
+    <div class="ironman-story-overlay">
+      <h4>The Ironman Story</h4>
+      <p>4 Half Ironman races completed. 1 Full Ironman attempted — and disqualified. Most people would call that failure. Silas calls it fuel. Limits aren't walls. They're invitations.</p>
+      <span class="badge">4× HALF IRONMAN • 1× FULL IRONMAN</span>
+    </div>
+  </div>
+</section>
+<section class="features-section">
+  <div class="features-inner">
+    <div class="section-label" style="text-align:center">What You Get</div>
+    <h2>Training That Actually Works</h2>
+    <p class="features-subtitle">Not another generic plan. A system built around real coaching.</p>
+    <div class="feature-list">
+      <div class="feature-item"><div class="feature-icon" style="background:rgba(27,43,90,0.08)">📋</div><div class="feature-text"><h4>Structured Weekly Plans</h4><p>Every week laid out clearly — what to do, when, and at what intensity. Running, swimming, cycling, strength, and mobility all in one place.</p></div></div>
+      <div class="feature-item"><div class="feature-icon" style="background:rgba(232,93,74,0.08)">🎯</div><div class="feature-text"><h4>Every Session Has a Purpose</h4><p>No more "just go run." Every workout comes with the why — what it builds, how to execute it, and what zone to hit.</p></div></div>
+      <div class="feature-item"><div class="feature-icon" style="background:rgba(42,166,166,0.08)">💬</div><div class="feature-text"><h4>Real Feedback Loop</h4><p>Log how sessions went, rate difficulty, leave notes for your coach. Silas reads every response and adjusts your training.</p></div></div>
+      <div class="feature-item"><div class="feature-icon" style="background:rgba(76,175,80,0.08)">📊</div><div class="feature-text"><h4>Track Your Progress</h4><p>See your consistency, completion rates, and growth over time. Know exactly where you stand in your training block.</p></div></div>
+      <div class="feature-item"><div class="feature-icon" style="background:rgba(123,107,138,0.08)">🏊‍♂️</div><div class="feature-text"><h4>Multi-Sport Support</h4><p>Run. Swim. Bike. Strength. Mobility. All treated as first-class training — not afterthoughts.</p></div></div>
+      <div class="feature-item"><div class="feature-icon" style="background:rgba(168,155,140,0.08)">📱</div><div class="feature-text"><h4>Works on Your Phone</h4><p>No app to download. Open it in your browser, bookmark it, and you're training. Lightweight, fast, no app fatigue.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="week-preview">
+  <div class="section-label" style="text-align:center">Sample Week</div>
+  <h2>Your Week, Structured</h2>
+  <p class="week-subtitle">Here's what a typical training week looks like on Kinetic.</p>
+  <div class="week-day"><div class="day-label">Mon</div><div class="day-card rest"><span class="title" style="color:var(--text-lighter)">Rest Day</span></div></div>
+  <div class="week-day"><div class="day-label">Tue</div><div class="day-card" style="border-left-color:#1B2B5A"><div class="title">Tempo Tuesday: 2×12min</div><div class="meta">45min • 8km • Zone 3</div></div></div>
+  <div class="week-day"><div class="day-label">Wed</div><div class="day-card" style="border-left-color:#E85D4A"><div class="title">Full Body Strength</div><div class="meta">45min • Running-focused</div></div></div>
+  <div class="week-day"><div class="day-label">Thu</div><div class="day-card" style="border-left-color:#7BA7CC"><div class="title">Easy Thursday</div><div class="meta">35min • Zone 2</div></div></div>
+  <div class="week-day"><div class="day-label">Fri</div><div class="day-card" style="border-left-color:#A89B8C"><div class="title">Recovery Mobility</div><div class="meta">30min • Foam rolling & stretches</div></div></div>
+  <div class="week-day"><div class="day-label">Sat</div><div class="day-card" style="border-left-color:#7BA7CC"><div class="title">Easy Saturday</div><div class="meta">40min • Zone 2</div></div></div>
+  <div class="week-day"><div class="day-label">Sun</div><div class="day-card" style="border-left-color:#7B6B8A"><div class="title">Sunday Long Run</div><div class="meta">60min • Endurance • Zone 2</div></div></div>
+</section>
+<section class="cta-section" id="cta">
+  <div class="section-label">Ready?</div>
+  <h2>Start Training<br>with Coach Silas</h2>
+  <p>Join Kinetic and get a structured, coach-led training plan delivered to your phone. No downloads. No guesswork.</p>
+  <a href="https://kinetic-app-lac.vercel.app" class="hero-cta">Join Kinetic — It's Free <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <p class="cta-note">Free to start • No app download needed • Works on any phone</p>
+</section>
+<footer>
+  <div class="logo">K<span>.</span> Kinetic</div>
+  <p>© 2026 Kinetic. Built in Nairobi.</p>
+</footer>
+</body>
+</html>
